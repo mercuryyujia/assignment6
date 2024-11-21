@@ -76,8 +76,8 @@ function groupByCity(data) {
 
         // Handle the source city
         let currentSource = result[d.SourceCity] || {
-            "Airport": d.DestAirport,
-            "AirportID": d.DestAirportID,
+            "Airport": d.SourceAirport,
+            "AirportID": d.SourceAirportID,
             "City": d.SourceCity,
             "Country": d.SourceCountry,
             "Latitude": +d.SourceLatitude,
