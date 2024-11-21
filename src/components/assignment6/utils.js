@@ -63,6 +63,8 @@ function groupByCity(data) {
     let result = data.reduce((result, d) => {
         // Handle the destination city
         let currentDest = result[d.DestCity] || {
+            "Airport": d.DestAirport,
+            "AirportID": d.DestAirportID,
             "City": d.DestCity,
             "Country": d.DestCountry,
             "Latitude": +d.DestLatitude,
@@ -74,6 +76,8 @@ function groupByCity(data) {
 
         // Handle the source city
         let currentSource = result[d.SourceCity] || {
+            "Airport": d.DestAirport,
+            "AirportID": d.DestAirportID,
             "City": d.SourceCity,
             "Country": d.SourceCountry,
             "Latitude": +d.SourceLatitude,
