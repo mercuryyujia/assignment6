@@ -1,6 +1,6 @@
 import React from "react";
 
-export { XAxis, YAxis };
+
 
 function YAxis (props) {
     const { yScale, height, offsetX } = props;
@@ -33,3 +33,5 @@ function XAxis(props) {
     </g>
     
 }
+
+export { XAxis, YAxis };
