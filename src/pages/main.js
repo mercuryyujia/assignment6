@@ -14,7 +14,7 @@ const csvUrl = 'https://gist.githubusercontent.com/QianweiYu/01062f70ebbd58fdca4
 function useData(csvPath){
     const [dataAll, setData] = React.useState(null);
 
-    React.useEffect(() => {
+    React.useEffect(() => { 
         csv(csvPath).then(data => {
             setData(data);
         });
