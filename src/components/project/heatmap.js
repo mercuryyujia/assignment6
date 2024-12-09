@@ -54,7 +54,7 @@ const Heatmap = ({ data, width = 800, height = 400 }) => {
       .range([0, innerHeight])
       .padding(0.1);
 
-    const colorScale = d3.scaleSequential(d3.interpolateViridis)
+    const colorScale = d3.scaleSequential(d3.interpolateReds)
       .domain([0, d3.max(heatmapData, d => d.count)]);
 
     // Add x and y axes

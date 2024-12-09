@@ -4,9 +4,9 @@ import { forceSimulation, forceX, forceY, forceCollide } from "d3";
 
 function GenreBubble({ width, height, data, selectedYear}) {
     const [genres, setGenres] = useState([]);
-    // console.log("data", data);
-    // const filteredData = data.filter((song) => song.year === selectedYear);
-    // console.log(filteredData);
+    console.log("data", data);
+    const filteredData = data.filter((song) => song.year === selectedYear);
+    console.log(filteredData);
 
     useEffect(() => {
         // Group by genre and count

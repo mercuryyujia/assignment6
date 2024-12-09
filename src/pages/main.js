@@ -9,7 +9,7 @@ import { BarChart } from "../components/project/barChart";
 import { LineChart } from "../components/project/lineChart";
 import { Heatmap } from "../components/project/heatmap";
 
-const csvUrl = 'https://gist.githubusercontent.com/QianweiYu/91f19921d6a3c782a7a1e86c19c1cb50/raw/b58b106af606ef7e6dd7098b2f12617f3fdbd7e3/filtered_songs.csv';
+const csvUrl = 'https://gist.githubusercontent.com/QianweiYu/01062f70ebbd58fdca4b69bf0f5c2bd0/raw/53c4d9f216ab89fe5e028f6d67190d1686217cf4/updated_songs.csv';
 
 function useData(csvPath){
     const [dataAll, setData] = React.useState(null);
@@ -28,7 +28,7 @@ function SpotifyAnalysis() {
     const [selectedYear, setSelectedYear] = React.useState(null);
     const barchart_width = 400;
     const barchart_height = 400;
-    const barchart_margin = { top: 10, bottom: 50, left: 130, right: 10 };
+    const barchart_margin = { top: 10, bottom: 30, left: 50, right: 20 };
     const barchart_inner_width = barchart_width - barchart_margin.left - barchart_margin.right;
     const barchart_inner_height = barchart_height - barchart_margin.top - barchart_margin.bottom;
     const genre_width = 400;
@@ -56,7 +56,7 @@ function SpotifyAnalysis() {
 
             {/* Bar Chart and Year Filter */}
             <Row className={"justify-content-md-left"}>
-                <Col lg={4}>
+                <Col lg={6}>
                     <h2>Barchart</h2>
                     <svg className={styles.svgStyle} id={"barchart"} width={barchart_width} height={barchart_height}>
                         <BarChart offsetX={barchart_margin.left} offsetY={barchart_margin.top} 
@@ -65,15 +65,13 @@ function SpotifyAnalysis() {
                         />
                     </svg>
                 </Col>
-            </Row>
 
-            {/* Genre Bubble and Year Filter */}
-            <Row>
-                <Col lg={8}>
+                {/* Genre Bubble and Year Filter */}
+                <Col lg={6}>
                     <h2>Bubble</h2>
                     <svg className={styles.svgStyle} id={"bubble"} width={genre_width} height={genre_height}>
                         <GenreBubble width={genre_width} height={genre_height} 
-                            data={genres} selectedYear={selectedYear}
+                            data={songs} selectedYear={selectedYear}
                         />
                     </svg>
                 </Col>
@@ -81,23 +79,21 @@ function SpotifyAnalysis() {
 
             {/* Line Chart */}
             <Row>
-                <Col lg={12}>
+                <Col lg={6}>
                     <h2>Linechart</h2>
-                    <svg className={styles.svgStyle} id={"line-chart"} width={linechart_width * 2} height={linechart_height}>
-                        <LineChart width={linechart_width * 2} height={linechart_height} data={songs} 
+                    <svg className={styles.svgStyle} id={"line-chart"} width={linechart_width} height={linechart_height}>
+                        <LineChart width={linechart_width} height={linechart_height} data={songs} 
                         top={linechart_margin.top} right={linechart_margin.right} 
                         bottom={linechart_margin.bottom} left={linechart_margin.left}
                         />
                     </svg>
                 </Col>
-            </Row>
-
-            {/* Heatmap */}
-            <Row>
-                <Col lg={12}>
+            
+                {/* Heatmap */}
+                <Col lg={6}>
                     <h2>Heatmap</h2>
-                    <svg className={styles.svgStyle} id={"heatmap"} width={heat_width * 2} height={heat_height}>
-                        <Heatmap width={heat_width * 2} height={heat_height} songs={songs} />
+                    <svg className={styles.svgStyle} id={"heatmap"} width={heat_width} height={heat_height}>
+                        <Heatmap width={heat_width} height={heat_height} data={songs} />
                     </svg>
                 </Col>
             </Row>

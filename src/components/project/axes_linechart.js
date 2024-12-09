@@ -6,7 +6,7 @@ function YAxis (props) {
     return (
         <g>
             {/* y-axis */}
-            <line x1={0} x2={0} y1={0} y2={height} stroke="black" />
+            <line x1={0} x2={0} y1={0} y2={height } stroke="black" />
             {/* ticks and text */}
             {yScale.ticks(5).map((tickValue) => (
                 <g key={tickValue} transform={`translate(0, ${yScale(tickValue)})`}>
